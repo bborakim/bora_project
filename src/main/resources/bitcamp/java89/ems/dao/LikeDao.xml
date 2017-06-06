@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="bitcamp.java89.ems.dao.LikeDao">
+  <resultMap type="like" id="like-map">
+    <id     column="itno"  property="itemNo"/>
+    <id     column="mno"   property="memberNo"/>
+    <result column="type"  property="type"/>
+    <result column="rdt" property="readTime"/>
+    
+    <result column="titl"  property="title"/>
+    <result column="time"  property="startTime"/>
+    <result column="stpc"  property="startPrice"/>
+    
+    <collection property="photoList" ofType="photo">
+      <id     column="pno"  property="photoNo"/>
+      <result column="path" property="filePath"/>
+    </collection>
+  </resultMap>
+  
+  <select id="getLikeList" parameterType="int" resultMap="like-map">
+    <![CDATA[
+    select
+      m.mno,
+      i.itno,
+      i.titl,
+      DATE_FORMAT(i.time, '%Y-%m-%d %H:%i') as time,
+      i.stpc,
+      p.path,
+      t.type,
+      t.rdt
+    from inter t
+    left outer join item i on t.itno=i.itno
+    left outer join memb m on t.mno=m.mno
+    left outer join phot p on i.itno=p.itno
+    where rdt < now() and t.type=1 or t.type=3 and m.mno=#{memberNo}
+    order by rdt desc;
+    ]]>
+  </select>
+  
+  <insert id="insert" parameterType="like">
+    insert into inter(mno,itno,type,rdt)
+    value(
+      #{memberNo},
+      #{itemNo},
+      #{type},
+      now())
+    </insert>
+
+   <update id="update" parameterType="like">
+    update inter 
+      set type=#{type}
+      where mno=#{memberNo} and itno=#{itemNo}
+      
+    </update>  
+    
+    <select id="getrecentList" parameterType="int" resultMap="like-map">
+    <![CDATA[
+    select
+      m.mno,
+      i.itno,
+      i.titl,
+      i.time,
+      i.stpc,
+      p.path,
+      t.type,
+      t.rdt
+    from inter t
+    left outer join item i on t.itno=i.itno
+    left outer join memb m on t.mno=m.mno
+    left outer join phot p on i.itno=p.itno
+    where i.time + interval 30 minute > now() and (t.type=2 or t.type=3) and m.mno=#{memberNo}
+    order by rdt desc;
+    ]]>
+  </select>
+   
+   <select id="getOneLike"  parameterType="map" resultType="string">
+    select
+      t.type
+    from inter t
+     where mno=#{memberNo} and itno=#{itemNo}
+   </select> 
+    
+    
+  <delete id="delete" parameterType="int">
+  <![CDATA[
+    delete from inter where itno=#{value} and type=1 
+  ]]>
+  </delete>
+  
+  <delete id="recentDelete" parameterType="int">
+  <![CDATA[
+    delete from inter where itno=#{value} and type=2
+  ]]>
+  </delete>
+  
+  
+  
+
+</mapper>

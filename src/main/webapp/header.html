@@ -1,0 +1,97 @@
+<div class="header-wrap">
+  <!--   <i class="fa menu-bars" aria-hidden="true"></i> -->
+  <nav class="navbar navbar-fixed-left navbar-minimal animate" role="navigation">
+    <div class="navbar-toggler animate">
+      <span class="menu-icon"></span>
+    </div>
+    <ul class="navbar-menu animate">
+      <li>
+        <a href="../mypage/mypage.html?submenu=mypage" class="animate">
+          <span class="desc animate"> 마이페이지</span>
+          <span class="glyphicon glyphicon-user"></span>
+        </a>
+      </li>
+      <li>
+        <a href="" class="animate" id="communicate-btn">
+          <span class="desc animate">판매자와 대화하기</span>
+          <span class="glyphicon glyphicon-comment"></span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <h1 id="main-title">이거어때?</h1>
+  <div class="search-bar">
+    <div>
+      <input id='searchTitle' type='text'>
+      <a id='search-btn' href='#'>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="btns">
+    <!-- 비로그인 상태 -->
+    <div id='logout-state'>
+      <div class="icon-hammer"></div>
+      <a href='#' class='header-menu-a' data-target="#add" data-toggle="modal" id="addbid-btn">경매등록</a>
+      <div id="icon-user-circle-o"></div>
+      <a href='#' class='header-menu-a' id='login-btn'>로그인</a>
+      <div id="icon-edit"></div>
+      <a href='#' class='header-menu-a' id='join-btn'>회원가입</a>
+    </div>
+    
+    <!-- 로그인 상태 -->
+    <div id='logon-state'>
+      <div class="icon-hammer"></div>
+      <a href='#' class='header-menu-a' data-target="#add" data-toggle="modal">경매등록</a>
+      <img id="logon-img" class="img-circle"></img>
+      <span id="logon-nick-name"></span>
+      <span id="icon-logout"></span>
+      <a href='#' class='header-menu-a' id='logout-btn'>로그아웃</a>
+    </div>
+  </div>
+  
+  <!-- 대화하기 시작 -->
+  <div id="contbox" class="communicate">
+    <div class="nickname-search">
+      <a href="#" class="search-btn"></a>
+      <div class="search-input">
+        <input id="searchMember" type="text" class="form-control" placeholder="닉네임을 입력하세요.">
+      </div>
+      <button type="button" class="close communicate-close-btn">
+        <span>&times;</span>
+      </button>
+    </div>
+    <div class="find-friends">
+      <div id="nicklist" style="margin-top:-121px; margin-left:-55px;">
+      </div>
+        <div class="chat"></div>
+      <div id="clean">
+	      <div class="icon-comment-empty"></div>
+	      <div id='clean-desc'><span>닉네임 검색을 통해<br>채팅할 상대방을 찾으세요.</span>
+	      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script id="templatelist" type="text/x-handlebars-template">
+<div class='member'>
+  <img src='../upload/{{photoPath}}' height='40px'>
+  <span>{{nickName}}</span>
+</div>
+</script>
+<script id="text-box" type="text/x-handlebars-template">
+<div class="textbox">
+  <div class="textline">
+    <textarea id="textarea"></textarea>
+    <button id="b1" class="btn btn-warning">전송</button>
+  
+  </div>
+</div>
+</script>
+
+
+
+

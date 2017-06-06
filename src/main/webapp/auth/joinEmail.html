@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>회원가입</title>
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css" >
+  <link rel="stylesheet" href="../node_modules/sweetalert/dist/sweetalert.css" type="text/css">
+  <link rel="stylesheet" href="../font/fontello.css">
+  <link rel="stylesheet" href="../css/common.css" >
+  <link rel="stylesheet" href="../css/joinEmail.css">
+</head>
+
+<body>
+  <div id='header'></div>
+  <div class="container">
+    <div id='body'>
+      <h1>회원가입</h1>
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">이메일</label>
+          <div class="col-sm-8 has-feedback">
+            <input id="email" type="email" class="form-control" placeholder="이메일 입력">
+            <span class="glyphicon glyphicon-ok form-control-feedback" id="email-ok"></span>
+            <span class="errormsg" id="erroremail"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">비밀번호</label>
+          <div class="col-sm-8 has-feedback">
+            <input id="password" type="password" class="form-control" placeholder="영문,숫자 포함 6~20자">
+            <span class="glyphicon glyphicon-ok form-control-feedback" id="password-ok"></span>
+            <span class="errormsg" id="errorpassword"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">비밀번호 확인</label>
+          <div class="col-sm-8 has-feedback">
+            <input id="password-conf" type="password" class="form-control" placeholder="비밀번호 확인">
+            <span class="glyphicon glyphicon-ok form-control-feedback" id="password-conf-ok"></span>
+            <span class="errormsg" id="errorpassword-conf"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">닉네임</label>
+          <div class="col-sm-8 has-feedback">
+            <input id="nickName" type="text" class="form-control" placeholder="한글,영문,숫자 포함 2~6자">
+            <span class="glyphicon glyphicon-ok form-control-feedback" id="nickName-ok"></span>
+            <span class="errormsg" id="errornickName"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">휴대전화</label>
+          <div class="col-sm-8 has-feedback">
+            <input id="phoneNo" type="number" class="form-control" placeholder="'-'를뺀 휴대전화 입력">
+            <span class="glyphicon glyphicon-ok form-control-feedback" id="phoneNo-ok"></span>
+            <span class="errormsg" id="errorphoneNo"></span>
+          </div>
+        </div>
+        <div class="btn_area">
+          <a href="" id='add-btn' class="btn_confirm">가입완료</a>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <script src="../js/context.js"></script>
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="../node_modules/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/joinEmail.js"></script>
+</body>
+
+</html>

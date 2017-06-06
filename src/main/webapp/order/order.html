@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>이거어때</title>
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="../node_modules/sweetalert/dist/sweetalert.css">
+  <link rel="stylesheet" href="../node_modules/bootstrap-fileinput/css/fileinput.css" media="all">
+  <link rel="stylesheet" href="../node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css">
+  <link rel="stylesheet" href="../font/fontello.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/order.css">
+</head>
+
+<body>
+  <div id='header'></div>
+
+  <div class="container">
+    <h1>낙찰결제</h1>
+    <div class="destination">
+      <h4 class="sub-text dest-head">배송지 선택</h4>
+        <dl class="dl-horizontal">
+          <dt class="term">*받는분</dt>
+          <dd class="desc">
+            <div class="col-sm-5">
+              <input id="receiver" type="text" class="form-control">
+            </div>
+            <span class="errormsg" id="errorReceiver">올바른 이름이 아닙니다.</span>
+            <span class="errormsg" id="necessary1">필수 입력란입니다.</span>
+            <span class="errormsg" id="receiver-conf"></span>
+          </dd>
+        </dl>
+        <dl class="dl-horizontal">
+          <dt class="term">*휴대전화</dt>
+          <dd class="desc">
+            <div class="col-sm-6">
+              <input id="phoneNo" type="number" class="form-control">
+              <span class="errormsg" id="necessary2">필수 입력란입니다.</span>
+              <span class="errormsg" id="errorphoneNo">휴대전화 형식이 아닙니다.</span>
+              <span class="errormsg" id="phoneNo-conf"></span>
+            </div>
+          </dd>
+        </dl>
+        <dl class="dl-horizontal">
+          <dt class="term">*주소</dt>
+          <dd class="desc">
+              <a href="" class="btn addr-find">
+                <span>주소찾기</span>
+              </a>
+            <div class="col-sm-4">
+              <input type="text" id="zip-code" class="form-control" placeholder="우편번호" readonly>
+            </div>
+            <div class="col-sm-12 addr-detail">
+              <input type="text" id="address" class="form-control" placeholder="주소" readonly>
+              <input type="text" id="address-detail" class="form-control" placeholder="상세주소">
+            </div>
+            <span class="errormsg" id="necessary3">필수 입력란입니다.</span>
+            <span class="errormsg" id="address-conf"></span>
+          </dd>
+        </dl>
+        <dl class="dl-horizontal">
+          <dt class="term">요청사항</dt>
+          <dd class="desc">
+            <div class="col-sm-12">
+              <textarea id="receiver" class="form-control" rows="4" placeholder="부재시, 전화 또는 문자 연락 주세요."></textarea>
+            </div>
+          </dd>
+        </dl>
+      <div class="term-bgc">
+        <input id="email" type="hidden">
+      </div>
+    </div>
+    <div class="information">
+      <h4 class="sub-text">상품 정보</h4>
+      <div id="product">
+        <img id="product-img">
+        <p id="title"></p>
+        <span id=seller></span>
+        <span id=icon-phone></span>
+        <span id=seller-phone></span>
+      </div>
+      <div class="payment">
+        <div class="nav">
+          <p id="nb-countdown"></p>
+          <span id="remains">남음</span>
+        </div>
+        <dl class="dl-horizontal dl-payment">
+          <dt class="final-bid">최종낙찰가</dt>
+          <dd class="final-bid-price">
+            <span class="won">원</span>
+            <span class="winning-amount"></span>
+          </dd>
+        </dl>
+        <div class="payment-btn">
+          <span>
+            결제하기
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 경매등록 -->
+  <div class="bid-regist"></div>
+
+  <script src="../js/context.js"></script>
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+  <script src="https://service.iamport.kr/js/iamport.payment-1.1.4.js"></script>
+  <script src="../node_modules/bootstrap-fileinput/js/fileinput.min.js"></script>
+  <script src="../js/kr.js"></script>
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="../node_modules/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="../node_modules/jquery-countdown/dist/jquery.countdown.min.js"></script>
+  <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+  <script src="../node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+  <script src="../node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.kr.js"></script>
+  <script src="../js/order.js"></script>
+
+</body>
+
+</html>

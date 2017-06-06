@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta property="og:url" content="http://bbakdu.com/B1A3/main/main.html">
+  <meta property="fb:app_id" content="2229730730585360">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="시티즌 시계">
+  <meta property="og:description" content="시티즌 시계 입니다. 정품, 새제품이고 택배, 내부구성품, 박스 그대로 입니다">
+  <meta property="og:image" content="http://bbakdu.com/B1A3/upload/1487897161498_24">
+  <meta property="og:image:width" content="600">
+  <meta property="og:image:height" content="318">
+	<!--<meta name="twitter:card" content="summary_large_image" />
+	<meta property="og:title" content="타이틀" />
+	<meta property="og:url" content="공유하는 해당 페이지 url" />
+	<meta property="og:description" content="description" />
+	<meta property="og:image" content="***Image URL***" />
+	<meta name="twitter:site" content="@kimbolla" />
+	<meta name="twitter:creator" content="@kimbolla" />-->
+  <title>이거어때</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../image/favicon.ico">
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="../node_modules/sweetalert/dist/sweetalert.css">
+  <link rel="stylesheet" href="../node_modules/bootstrap-fileinput/css/fileinput.css" media="all">
+  <link rel="stylesheet" href="../node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css">
+  <link rel="stylesheet" href="../font/fontello.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/detail.css">
+  <link rel="stylesheet" href="../css/input.css">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body>
+  <div id='header'></div>
+
+  <div class="container">
+    <!-- 시간헤더 시작-->
+    <div id='header_sub'>
+      <span id="on-air-text">온라인 실시간 경매중!</span>
+      <span id="on-air-text2">ON AIR!</span>
+    </div>
+    <div class="nav" style="margin-top:-22px;">
+      <p id="nb-countdown"></p>
+      <span id="remains">남음</span>
+    </div>
+    <!-- 시간헤더 끝-->
+    <!-- 컨텐츠 본문 시작-->
+    <div id="body-solid">
+      <div id="model-body">
+        <!-- 사진본문 시작-->
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators nb-ol">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+          </ol>
+          <div data-toggle="modal" data-target="#detail" class="carousel-inner nb-imgs" role="listbox">
+            <div class="item active">
+              <img class="nb-img1">
+            </div>
+            <div class="item">
+              <img class="nb-img2">
+            </div>
+            <div class="item">
+              <img class="nb-img3">
+            </div>
+            <div class="item">
+              <img class="nb-img4">
+            </div>
+          </div>
+        </div>
+        <div id='decs-content'>
+          <div class="title">
+            <span class="nb-title"></span>
+          </div>
+           <div class="section">
+              <ul class="social-btns" style="padding-left:0px;">
+                <li>
+                  <a href="#" id="shareBtnfacebook" class="social-btn-dissolve facebook">
+                    <i class="fa fa-facebook"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/share" target="_block"class="social-btn-dissolve twitter">
+                    <i class="fa fa-twitter"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);" class="social-btn-dissolve heart">
+                    <i class="fa fa-heart"></i>
+                  </a>
+                </li>
+              </ul>
+          </div>
+          <dl class="dl-horizontal">
+            <dt class="pinkprice">시작가</dt>
+            <dd class="pinkprice">
+              <span class="start_num"></span>
+              <span>원</span>
+              <dt class="topprice">현재가</dt>
+              <dd class='pinkprice'>
+                <span class="present_num pink-num"></span>
+                <span>원</span>
+              </dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+    <!-- 입찰기록 시작 -->
+    <div id='bidding'>
+      <span id="bid-history">입찰기록</span>
+      <div class="desc-non-record">
+        <span class="icon-exclamation"></span>
+        <div class="bids-empty">입찰기록이 없습니다.</div>
+      </div>
+      <div class='desc-record'>
+        <div class='desc-line1'>
+          <img class="img-circle successful-bidder-img">
+          <span class="successful-bidder"></span>
+          <span class="won1">원</span>
+          <span class="present_num present_num2"></span>
+        </div>
+        <div class='desc-line' id="dl1">
+          <img class='img-circle bidder-img' id="dl1-img">
+          <span class="bidder" id="dl1-bidder"></span>
+          <span class="bid-time" id="dl1-time"></span>
+          <span class="bid-won" id="dl1-bid"></span>
+          <span class="won2">원</span>
+        </div>
+        <div class='desc-line' id="dl2">
+          <img class='img-circle bidder-img' id="dl2-img">
+          <span class="bidder" id="dl2-bidder"></span>
+          <span class="bid-time" id="dl2-time"></span>
+          <span class="bid-won" id="dl2-bid"></span>
+          <span class="won2">원</span>
+        </div>
+        <div class='desc-line' id="dl3">
+          <img class='img-circle bidder-img' id="dl3-img">
+          <span class="bidder" id="dl3-bidder"></span>
+          <span class="bid-time" id="dl3-time"></span>
+          <span class="bid-won" id="dl3-bid"></span>
+          <span class="won2">원</span>
+        </div>
+        <div class='desc-line' id="dl4">
+          <img class='img-circle bidder-img' id="dl4-img">
+          <span class="bidder" id="dl4-bidder"></span>
+          <span class="bid-time" id="dl4-time"></span>
+          <span class="bid-won" id="dl4-bid"></span>
+          <span class="won2">원</span>
+        </div>
+        <div class='desc-line' id="dl5">
+          <img class='img-circle bidder-img' id="dl5-img">
+          <span class="bidder" id="dl5-bidder"></span>
+          <span class="bid-time" id="dl5-time"></span>
+          <span class="bid-won" id="dl5-bid"></span>
+          <span class="won2">원</span>
+        </div>
+        <div class='desc-line' id="dl6">
+          <img class='img-circle bidder-img' id="dl6-img">
+          <span class="bidder" id="dl6-bidder"></span>
+          <span class="bid-time" id="dl6-time"></span>
+          <span class="bid-won" id="dl6-bid"></span>
+          <span class="won2">원</span>
+        </div>
+        <div class='desc-line' id="dl7">
+          <img class='img-circle bidder-img' id="dl7-img">
+          <span class="bidder" id="dl7-bidder"></span>
+          <span class="bid-time" id="dl7-time"></span>
+          <span class="bid-won" id="dl7-bid"></span>
+          <span class="won2">원</span>
+        </div>
+        <div class='desc-line' id="dl8">
+          <img class='img-circle bidder-img' id="dl8-img">
+          <span class="bidder" id="dl8-bidder"></span>
+          <span class="bid-time" id="dl8-time"></span>
+          <span class="bid-won" id="dl8-bid"></span>
+          <span class="won2">원</span>
+        </div>
+        <div class='desc-line' id="dl9">
+          <img class='img-circle bidder-img' id="dl9-img">
+          <span class="bidder" id="dl9-bidder"></span>
+          <span class="bid-time" id="dl9-time"></span>
+          <span class="bid-won" id="dl9-bid"></span>
+          <span class="won2">원</span>
+        </div>
+        <div class='desc-line' id="dl10">
+          <img class='img-circle bidder-img' id="dl10-img">
+          <span class="bidder" id="dl10-bidder"></span>
+          <span class="bid-time" id="dl10-time"></span>
+          <span class="bid-won" id="dl10-bid"></span>
+          <span class="won2">원</span>
+        </div>
+      </div>
+    </div>
+    <!-- 입찰기록 끝 -->
+    <!-- 입찰버튼 시작 -->
+    <button type="button" class="bidding-btn" data-toggle="modal" data-target="#tender">입찰하기</button>
+    <div class="modal fade " tabindex="-1" role="dialog" id="tender">
+      <div id='bid' class="modal-dialog" role="document">
+        <div class="modal-content">
+
+          <div class="modal-header" id="tender-header">
+            <div class="bidding-present">
+              <span class="bidding-present-text">현재가</span>
+              <span class="bidding-present-won">원</span>
+              <span class="present_num bidding_present_num"></span>
+            </div>
+            <div class="bidding-price">
+              <span class="bidding-price-text">입찰금액</span>
+              <input id='l' class='form-control'>
+              <span>원</span>
+            </div>
+            <div class="atbids1">
+              <span>현재 </span>
+              <span class="atLeastBids"></span>
+              <span>원 부터 입찰하실 수 있습니다.</span>
+            </div>
+            <span class="atbids2">최대 입찰가는 천만원입니다.</span>
+            <span class="atbids3">입찰금액은 100원 단위로 입력해주세요.</span>
+            <span class="atbids4"></span>
+            
+          </div>
+
+          <div class="modal-body" id="tender-body">
+            <span class='body-content'>*경매 낙찰 건을 주문 취소하시면 구매거부가 되어 경매 패널티가 1점 부여됩니다.</span><br>
+            <span class='body-content1'>*최근 한 달 동안의 경매 패널티가 3점이 되면 한 달 동안 경매에 참여하시지 못합니다.</span>
+            
+          </div>
+
+          <div class="modal-footer" id="tender-footer">
+            <button id="bid2-btn" type="button" class="btn btn-primary1 btn-lg">입찰</button>
+            <button type="button" class="btn btn-default1 btn-lg" data-dismiss="modal">취소</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 입찰버튼 끝 -->
+  </div>
+  <!-- 다음경매 무한 스크롤 시작-->
+  <div class="next-bidlist">
+    <h1 class="heading"> NEXT BIDDING LIST</h1>
+    <!-- 다음경매 리스트 시작 -->
+    <div class="container">
+      <!-- 다음경매 컨텐츠 본문 시작-->
+      <section class="wrapper">
+        <div class="container-big">
+          <div class="content">
+            <div id="nextlist" class="container"></div>
+            <div id="nextPgBtn">다음경매 더보기</div>
+          </div>
+          <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  
+  <video id="bgvid" autoplay muted loop>
+    <source src="../upload/main.mp4" type="video/mp4">
+  </video>
+  <div class="intro">
+    <h1>내일을 준비하는 작은 움직임</h1>
+    <span>- 이거어때 간편 경매 -</span>
+    <div class="intro-addbtn" data-target="#add" data-toggle="modal">
+      <div class="icon-hammer"></div>
+      <a>경매등록</a>
+    </div>
+  </div>
+
+  <!-- 경매등록 -->
+  <div class="bid-regist"></div>
+
+  <!-- 현재경매 상세보기 -->
+  <div class="bid-current"></div>
+
+  <script id="trTemplate" type="text/x-handlebars-template">
+    <div class="col-xs-12 col-sm-4">
+      <div class="carbox" data-itno="{{itemNo}}">
+        <div class="carbox-read-more" data-countdown="{{startTime}}"></div>
+        <div class="carousel slide next-bid-photos" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+          </ol>
+          <div class="carousel-inner" role="listbox">
+            {{#each photoList}}
+              <div class="item">
+                <img class="item-img" src="../upload/{{this.filePath}}">
+              </div>
+            {{/each}}
+          </div>
+        </div>
+        <div class="carbox-content">
+           <div class="section2">
+              <ul class="social-btns2" style="padding-left:0px;">
+                <li>
+                  <a href="javascript:void(0);" class="social-btn-dissolve2 facebook">
+                    <i class="fa fa-facebook"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);" class="social-btn-dissolve2 twitter">
+                    <i class="fa fa-twitter"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);" class="social-btn-dissolve2 heart" data-itno="{{itemNo}}">
+                  {{#if heart}}
+                    <i class="glyphicon glyphicon-heart"></i>
+                  {{else}}
+                    <i class="fa fa-heart"></i>
+                  {{/if}}
+                  </a>
+                </li>
+              </ul>
+            </div>
+          <h4 class="carbox-title">{{title}}</h4>
+          <dl class="next-horizontal">
+            <dt class="pinktext stp-text">시작가</dt>
+            <dd class="black">
+              <span>{{startPrice}}원</span>
+            </dd>
+          </dl>
+          <dl class="next-horizontal">
+            <dt class="pinktext st-text">시작시간</dt>
+            <dd class='black'>
+              <span>{{startTime}}</span>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </script>
+
+  <script src="../js/context.js"></script>
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+  <script src="../node_modules/bootstrap-fileinput/js/fileinput.min.js"></script>
+  <script src="../js/kr.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="../node_modules/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
+  <script src="../node_modules/jquery-countdown/dist/jquery.countdown.min.js"></script>
+  <script src="../node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+  <script src="../node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.kr.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/main.js"></script>
+  <!-- <script src="../js/member.js"></script> -->
+  <div id="fb-root"></div>
+  <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '2229730730585360',
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+  </script>
+	<script>
+		$('.social-btn-dissolve.facebook, .social-btn-dissolve2.facebook').click(function() {
+			var facebookBtn = $(this).addClass('clicked');
+			facebookBtn.children('.fa.fa-facebook').attr('class','sb min facebook');
+	   //	$("meta[property='og:title']").attr("content", "hahahaha"); 
+	   	//$("meta[property='og:description']").attr("content", "hahaha2");
+	   	//$("meta[property='og:image']").attr("content", "hahaha3");
+	   	FB.ui({
+	        method: 'share',
+	        display:'popup',
+	        href: 'http://bbakdu.com/B1A3/main/main.html'
+	    }, function(response) {});
+		});
+	</script>
+	<script>!function(d,s,id) {
+  var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+  if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
+  fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+  </script>
+</body>
+
+</html>

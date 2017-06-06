@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>검색관리-목록</title>
+<link href="../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+<link rel="stylesheet" href="../node_modules/bootstrap-fileinput/css/fileinput.css" media="all">
+<link rel="stylesheet" href="../node_modules/sweetalert/dist/sweetalert.css">
+<link rel="stylesheet" href="../node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css">
+<link rel="stylesheet" href="../font/fontello.css">
+<link href="../css/common.css" rel="stylesheet">
+<link href="../css/search.css" rel="stylesheet">
+<link href="../css/show.css" rel="stylesheet">
+
+</head>
+<body>
+<div id='header'></div>
+<div class='container'>
+
+	<h1>상세 정보</h1>
+	<div class='header1'>
+	  <div class='inside'>
+	   <span  class='title'>카테고리</span>
+	   <div class="btn-group">
+	   
+	     <div class='category1'>
+         <input type='checkbox' name='g1' id='test1' value="패션">
+         <div class='magic'></div>
+         <span class='cate'>패션</span>
+       </div>
+	     
+		   <div class='category2'>
+         <input type='checkbox' name='g1' id='test2' value="가방">
+         <div class='sbag'></div>
+         <span class='cate'>가방</span>
+       </div>
+       
+       <div class='category3'>
+         <input type='checkbox' name='g1' id='test3' value='취미'>
+         <div class='hobby'></div>
+         <span class='cate'>취미</span>
+       </div>
+       
+       <div class='category4'>
+         <input type='checkbox' name='g1' id='test4' value='디지털'>
+         <div class='camera'></div>
+         <span class='cate1'>디지털</span>
+       </div>
+       
+       <div class='category5'>
+         <input type='checkbox' name='g1' id='test5' value='컴퓨터'>
+         <div class='desktop'></div>
+         <span class='cate1'>컴퓨터</span>
+       </div>
+       
+       <div class='category6'>
+         <input type='checkbox' name='g1' id='test6' value='레져'>
+         <div class='bicycle'></div>
+         <span class='cate'>레져</span>
+       </div>
+       
+       <div class='category7'>
+         <input type='checkbox' name='g1' id='test7' value='생활품'>
+         <div class='home'></div>
+         <span class='cate1'>생활품</span>
+       </div>
+       
+       <div class='category8'>
+         <input type='checkbox' name='g1' id='test8' value='가구'>
+         <div class='bed'></div>
+        <span class='cate'>가구</span>
+       </div>
+       
+       <div class='category9'>
+         <input type='checkbox' name='g1' id='test9' value='도서'>
+         <div class='book'></div>
+         <span class='cate'>도서</span>
+       </div>
+		 </div>
+	 </div>
+		<hr>
+		<div class='inside'>
+	  <span class='title1'>경매</span>
+	  <input id='current' class='content' type='radio' name='title' value='true'  checked="checked">
+	  <span class='next-product2'>현재 경매</span>
+	  <input id='last' class='content' type='radio' name='title' value='false' >
+	  <span class='next-product2'>과거 경매</span>
+	  </div>
+	  <hr>
+	  
+    <div class='inside'>
+    <span class='title2'>가격</span>
+     <input style='display:inline-block; vertica-align:middle; margin: 0 0 5px 10px; 
+       text-align:right; padding:20px 8px 11px 0; width:130px;'
+       class='form-control' type= "text" placeholder="1000" id='priceBefore'  >
+     <span class='next-product3'>~</span>
+     <input style='display:inline-block; vertica-align:middle; margin: 0 0 5px 10px; 
+       text-align:right; padding:20px 8px 11px 0; width:130px;'
+      class='form-control' type= "text" placeholder="10000" id='priceAfter' >
+     <span class='next-product4'>원</span>
+     <button style='margin: 13px 0 0 10px;'id='searchItem' type="button">검색</button>
+     </div>
+  </div>
+  <br>
+  
+  <div class='inside'>
+	<a id='search' class='a'  href='#'>경매시작순 </a>
+	<a id='search1' class='a' href='#'>신규등록순 </a>
+	<a id='search2' class='a' href='#'>높은가격순 </a>
+	<a id='search3' class='a' href='#'>낮은가격순</a>
+	<hr class='commit'>
+	</div>
+	<div class='content1'>
+	<div id="search-bid"></div>
+	<div id="nextPgBtn">다음경매 더보기</div>
+	</div>
+  
+  <div class="spinner">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
+  </div>
+  
+  <div class='content2'>
+    <h4><em></em> 에 대한 검색 결과가 없습니다.</h4>
+    <p>정확한 검색어 인지 확인하시고 다시 검색해 주세요.</p>
+    <ul>
+      <li>상세 검색 옵션을 변경해보세요.</li>
+      <li>단어의 철자가 정확한지 확인해 주세요.</li>
+      <li>보다 일반적인 검색어로 다시 검색해 보세요.</li>
+      <li>검색어의 띄어쓰기를 다르게 해보세요.</li>
+    </ul>
+  </div>
+</div>
+
+<script src="../js/context.js"></script>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../node_modules/sweetalert/dist/sweetalert.min.js"></script>
+<script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
+<script src="../node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="../node_modules/bootstrap-datepicker/js/locales/bootstrap-datepicker.kr.js"></script>
+<script id="trTemplate1" type="text/x-handlebars-template">
+   <div class="col-xs-12 col-sm-4">
+      <div class="carbox"  data-itno="{{itemNo}}">
+        <div id="next-bid-photos" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+          </ol>
+          <div class="carousel-inner" role="listbox">
+            <div class="item active">
+              <img class="item-img" src="../upload/{{photoList.0.filePath}}">
+              <div class="carousel-caption"></div>
+            </div>
+            <div class="item">
+              <img class="item-img" src="../upload/{{photoList.1.filePath}}">
+              <div class="carousel-caption"></div>
+            </div>
+            <div class="item">
+              <img class="item-img" src="../upload/{{photoList.2.filePath}}">
+              <div class="carousel-caption"></div>
+            </div>
+            <div class="item">
+              <img class="item-img" src="../upload/{{photoList.3.filePath}}">
+              <div class="carousel-caption"></div>
+            </div>
+          </div>
+        </div>
+        <div class="carbox-content">
+          <div class="section2">
+            <ul class="social-btns2" style="padding-left:0px;">
+              <li>
+                <a href="javascript:void(0);" class="social-btn-dissolve2 facebook">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" class="social-btn-dissolve2 twitter">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" class="social-btn-dissolve2 heart" data-itno="{{itemNo}}">
+                  <i class="fa fa-heart"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <h4 class="carbox-title">{{title}}</h4>
+          <dl class="next-horizontal">
+            <dt class="pinktext stp-text">시작가</dt>
+            <dd class="black">
+              <span>{{startPrice}}원</span>
+            </dd>
+          </dl>
+          <dl class="next-horizontal">
+            <dt class="pinktext st-text">시작시간</dt>
+            <dd class='black'>
+              <span>{{startTime}}</span>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+</script>	
+<script src="../node_modules/bootstrap-fileinput/js/fileinput.min.js"></script>
+<script src="../js/kr.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/search.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+    
